@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<BorlandProject>
+  <Transactions>
+    <Transaction>2021/10/10 19:58:23.647,=C:\Users\yami\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>2021/10/10 20:16:09.141,C:\Yamile\Delphi\Prueba DigitalWare\Cálculo salario\UntSalario.pas=C:\Users\yami\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>2021/10/10 20:16:09.141,C:\Yamile\Delphi\Prueba DigitalWare\Cálculo salario\UntSalario.dfm=C:\Users\yami\Documents\Embarcadero\Studio\Projects\Unit1.dfm</Transaction>
+    <Transaction>2021/10/10 20:16:28.026,C:\Yamile\Delphi\Prueba DigitalWare\Cálculo salario\PrjSalario.dproj=C:\Users\yami\Documents\Embarcadero\Studio\Projects\Project1.dproj</Transaction>
+  </Transactions>
+</BorlandProject>

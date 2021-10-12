@@ -1,0 +1,4 @@
+servidor: localhost
+Nombre BD: pedidos
+Usuario: sa
+Password: sqlserver

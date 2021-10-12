@@ -1,0 +1,63 @@
+object Form1: TForm1
+  Left = 0
+  Top = 0
+  Caption = 'Serie Fibonacci'
+  ClientHeight = 244
+  ClientWidth = 513
+  Color = clBtnFace
+  Font.Charset = DEFAULT_CHARSET
+  Font.Color = clWindowText
+  Font.Height = -11
+  Font.Name = 'Tahoma'
+  Font.Style = []
+  OldCreateOrder = False
+  Position = poDesktopCenter
+  PixelsPerInch = 96
+  TextHeight = 13
+  object Panel1: TPanel
+    Left = 0
+    Top = 0
+    Width = 513
+    Height = 244
+    Align = alClient
+    TabOrder = 0
+    object Label1: TLabel
+      Left = 54
+      Top = 35
+      Width = 70
+      Height = 13
+      Caption = 'Digite n'#250'mero:'
+    end
+    object Label2: TLabel
+      Left = 54
+      Top = 133
+      Width = 55
+      Height = 13
+      Caption = 'Resultado: '
+    end
+    object Edit1: TEdit
+      Left = 145
+      Top = 32
+      Width = 168
+      Height = 21
+      TabOrder = 0
+    end
+    object ListBox1: TListBox
+      Left = 145
+      Top = 120
+      Width = 168
+      Height = 113
+      ItemHeight = 13
+      TabOrder = 1
+    end
+    object Button1: TButton
+      Left = 145
+      Top = 72
+      Width = 168
+      Height = 34
+      Caption = 'Obtener serie Fibonacci'
+      TabOrder = 2
+      OnClick = Button1Click
+    end
+  end
+end

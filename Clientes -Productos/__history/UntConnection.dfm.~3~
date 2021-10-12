@@ -1,0 +1,101 @@
+object DataModule1: TDataModule1
+  OldCreateOrder = False
+  OnCreate = DataModuleCreate
+  Height = 371
+  Width = 544
+  object fdcConnection: TFDConnection
+    Params.Strings = (
+      'User_Name=sa'
+      'Server=localhost'
+      'Database=pedidos'
+      'Password=sqlserver'
+      'DriverID=MSSQL')
+    Connected = True
+    LoginPrompt = False
+    Left = 104
+    Top = 56
+  end
+  object fdtClientes: TFDTable
+    IndexFieldNames = 'id'
+    Connection = fdcConnection
+    UpdateOptions.UpdateTableName = 'pedidos.dbo.clientes'
+    TableName = 'pedidos.dbo.clientes'
+    Left = 64
+    Top = 128
+    object fdtClientesid: TFDAutoIncField
+      FieldName = 'id'
+      Origin = 'id'
+      ProviderFlags = [pfInWhere, pfInKey]
+      ReadOnly = True
+    end
+    object fdtClientesnombre: TStringField
+      FieldName = 'nombre'
+      Origin = 'nombre'
+      Required = True
+      Size = 50
+    end
+    object fdtClientesdireccion: TStringField
+      FieldName = 'direccion'
+      Origin = 'direccion'
+      Required = True
+      Size = 50
+    end
+    object fdtClientestelefono: TStringField
+      FieldName = 'telefono'
+      Origin = 'telefono'
+      Required = True
+    end
+    object fdtClientescreado: TSQLTimeStampField
+      FieldName = 'creado'
+      Origin = 'creado'
+    end
+    object fdtClientesactualizado: TSQLTimeStampField
+      FieldName = 'actualizado'
+      Origin = 'actualizado'
+    end
+  end
+  object dtsClientes: TDataSource
+    DataSet = fdtClientes
+    Left = 120
+    Top = 136
+  end
+  object fdtProductos: TFDTable
+    Connection = fdcConnection
+    UpdateOptions.UpdateTableName = 'pedidos.dbo.productos'
+    TableName = 'pedidos.dbo.productos'
+    Left = 272
+    Top = 56
+  end
+  object fdtPedido: TFDTable
+    Connection = fdcConnection
+    UpdateOptions.UpdateTableName = 'pedidos'
+    TableName = 'pedidos'
+    Left = 264
+    Top = 144
+    object fdtPedidoid_producto: TIntegerField
+      FieldName = 'id_producto'
+      Origin = 'id_producto'
+      Required = True
+    end
+    object fdtPedidocantidad: TIntegerField
+      FieldName = 'cantidad'
+      Origin = 'cantidad'
+      Required = True
+    end
+    object fdtPedidofdtNombreProducto: TStringField
+      FieldKind = fkLookup
+      FieldName = 'fdtNombreProducto'
+      LookupDataSet = fdtProductos
+      LookupKeyFields = 'id'
+      LookupResultField = 'nombre'
+      KeyFields = 'id_producto'
+      Size = 50
+      Lookup = True
+    end
+  end
+  object dtsPedido: TDataSource
+    DataSet = fdtPedido
+    Left = 320
+    Top = 144
+  end
+end

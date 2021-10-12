@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<BorlandProject>
+	<Transactions>
+    <Transaction>2021/10/10 23:25:12.000.908,=C:\Users\yami\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>2021/10/10 23:31:45.000.284,=C:\Users\yami\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>2021/10/11 00:17:13.000.254,C:\Users\yami\Documents\Embarcadero\Studio\Projects\Unit1.dfm=C:\Yamile\Delphi\Prueba DigitalWare\Factura\UntFactura.dfm</Transaction>
+    <Transaction>2021/10/11 00:17:13.000.254,C:\Users\yami\Documents\Embarcadero\Studio\Projects\Unit1.pas=C:\Yamile\Delphi\Prueba DigitalWare\Factura\UntFactura.pas</Transaction>
+    <Transaction>2021/10/11 00:17:37.000.901,C:\Users\yami\Documents\Embarcadero\Studio\Projects\Project1.dproj=C:\Yamile\Delphi\Prueba DigitalWare\Factura\PrjFactura.dproj</Transaction>
+    <Transaction>2021/10/11 00:22:08.000.240,=C:\Yamile\Delphi\Prueba DigitalWare\Factura\Unit1.pas</Transaction>
+    <Transaction>2021/10/11 00:22:38.000.513,C:\Yamile\Delphi\Prueba DigitalWare\Factura\Unit1.pas=C:\Yamile\Delphi\Prueba DigitalWare\Factura\UntConnection.pas</Transaction>
+    <Transaction>2021/10/11 00:22:38.000.513,C:\Yamile\Delphi\Prueba DigitalWare\Factura\Unit1.dfm=C:\Yamile\Delphi\Prueba DigitalWare\Factura\UntConnection.dfm</Transaction>
+  </Transactions>
+</BorlandProject>

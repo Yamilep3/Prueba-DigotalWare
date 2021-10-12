@@ -1,0 +1,192 @@
+object DataModule1: TDataModule1
+  OldCreateOrder = False
+  OnCreate = DataModuleCreate
+  Height = 371
+  Width = 544
+  object fdtClientes: TFDTable
+    BeforeEdit = fdtClientesBeforeEdit
+    OnNewRecord = fdtClientesNewRecord
+    IndexFieldNames = 'id'
+    Connection = fdcConnection
+    UpdateOptions.UpdateTableName = 'clientes'
+    TableName = 'clientes'
+    Left = 64
+    Top = 128
+    object fdtClientesid: TFDAutoIncField
+      FieldName = 'id'
+      Origin = 'id'
+      ProviderFlags = [pfInWhere, pfInKey]
+      ReadOnly = True
+    end
+    object fdtClientesnombre: TStringField
+      FieldName = 'nombre'
+      Origin = 'nombre'
+      Required = True
+      Size = 50
+    end
+    object fdtClientesdireccion: TStringField
+      FieldName = 'direccion'
+      Origin = 'direccion'
+      Required = True
+      Size = 50
+    end
+    object fdtClientescreado: TSQLTimeStampField
+      FieldName = 'creado'
+      Origin = 'creado'
+    end
+    object fdtClientesactualizado: TSQLTimeStampField
+      FieldName = 'actualizado'
+      Origin = 'actualizado'
+    end
+  end
+  object dtsClientes: TDataSource
+    DataSet = fdtClientes
+    Left = 120
+    Top = 136
+  end
+  object fdtProductos: TFDTable
+    IndexFieldNames = 'id'
+    Connection = fdcConnection
+    UpdateOptions.UpdateTableName = 'producto'
+    TableName = 'producto'
+    Left = 272
+    Top = 56
+    object fdtProductosid: TFDAutoIncField
+      FieldName = 'id'
+      Origin = 'id'
+      ProviderFlags = [pfInWhere, pfInKey]
+      ReadOnly = True
+    end
+    object fdtProductosnombre: TStringField
+      FieldName = 'nombre'
+      Origin = 'nombre'
+      Required = True
+      Size = 50
+    end
+    object fdtProductosPrecioVenta: TFloatField
+      FieldName = 'PrecioVenta'
+      Origin = 'PrecioVenta'
+      Required = True
+    end
+  end
+  object fdtPedido: TFDTable
+    Connection = fdcConnection
+    UpdateOptions.UpdateTableName = 'pedidos'
+    TableName = 'pedidos'
+    Left = 264
+    Top = 144
+    object fdtPedidoid_producto: TIntegerField
+      FieldName = 'id_producto'
+      Origin = 'id_producto'
+      Required = True
+    end
+    object fdtPedidocantidad: TIntegerField
+      FieldName = 'cantidad'
+      Origin = 'cantidad'
+      Required = True
+    end
+    object fdtPedidofdtNombreProducto: TStringField
+      FieldKind = fkLookup
+      FieldName = 'fdtNombreProducto'
+      LookupDataSet = fdtProductos
+      LookupKeyFields = 'id'
+      LookupResultField = 'nombre'
+      KeyFields = 'id_producto'
+      Size = 50
+      Lookup = True
+    end
+  end
+  object dtsPedido: TDataSource
+    DataSet = fdtPedido
+    Left = 320
+    Top = 144
+  end
+  object fdcConnection: TFDConnection
+    Params.Strings = (
+      'User_Name=sa'
+      'Server=localhost'
+      'Database=pedidos'
+      'Password=sqlserver'
+      'DriverID=MSSQL')
+    Connected = True
+    LoginPrompt = False
+    Left = 104
+    Top = 56
+  end
+  object DtsProducto: TDataSource
+    DataSet = fdtProductos
+    Left = 336
+    Top = 56
+  end
+  object fdtmaesfactura: TFDTable
+    IndexFieldNames = 'numero'
+    Connection = fdcConnection
+    UpdateOptions.UpdateTableName = 'maesfactura'
+    TableName = 'maesfactura'
+    Left = 56
+    Top = 232
+    object fdtmaesfacturanumero: TIntegerField
+      FieldName = 'numero'
+      Origin = 'numero'
+      ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
+      Required = True
+    end
+    object fdtmaesfacturafecha: TSQLTimeStampField
+      FieldName = 'fecha'
+      Origin = 'fecha'
+      Required = True
+    end
+    object fdtmaesfacturaidcliente: TIntegerField
+      FieldName = 'idcliente'
+      Origin = 'idcliente'
+      Required = True
+    end
+    object fdtmaesfacturatotal: TFMTBCDField
+      FieldName = 'total'
+      Origin = 'total'
+      Required = True
+      Precision = 18
+      Size = 0
+    end
+  end
+  object dtsmaesfactura: TDataSource
+    DataSet = fdtmaesfactura
+    Left = 144
+    Top = 232
+  end
+  object fdtdetafactura: TFDTable
+    IndexFieldNames = 'numero'
+    Connection = fdcConnection
+    UpdateOptions.UpdateTableName = 'detafactura'
+    TableName = 'detafactura'
+    Left = 296
+    Top = 240
+    object fdtdetafacturanumero: TIntegerField
+      FieldName = 'numero'
+      Origin = 'numero'
+      ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
+      Required = True
+    end
+    object fdtdetafacturaidproducto: TIntegerField
+      FieldName = 'idproducto'
+      Origin = 'idproducto'
+      Required = True
+    end
+    object fdtdetafacturacantidad: TIntegerField
+      FieldName = 'cantidad'
+      Origin = 'cantidad'
+      Required = True
+    end
+    object fdtdetafacturavalor: TFMTBCDField
+      FieldName = 'valor'
+      Origin = 'valor'
+      Precision = 18
+      Size = 0
+    end
+  end
+  object dtsdetafactura: TDataSource
+    DataSet = fdtdetafactura
+    Left = 376
+    Top = 248
+  end
+end

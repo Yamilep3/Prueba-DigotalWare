@@ -1,0 +1,119 @@
+unit UntSalario;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.StdCtrls, Vcl.ExtCtrls;
+
+type
+  TForm1 = class(TForm)
+    Panel1: TPanel;
+    Label1: TLabel;
+    Edit1: TEdit;
+    Edit2: TEdit;
+    Label2: TLabel;
+    Button1: TButton;
+    Label3: TLabel;
+    Edit3: TEdit;
+    Label4: TLabel;
+    Edit4: TEdit;
+    procedure Button1Click(Sender: TObject);
+    procedure Edit2KeyPress(Sender: TObject; var Key: Char);
+    procedure Edit3KeyPress(Sender: TObject; var Key: Char);
+    procedure Edit4KeyPress(Sender: TObject; var Key: Char);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  Form1: TForm1;
+
+implementation
+
+{$R *.dfm}
+
+procedure TForm1.Button1Click(Sender: TObject);
+var
+  HorasTrabj : integer;
+  HorasOrdin : integer;
+  HorasExtra : integer;
+  ValHorOrdi : double;
+  ValHorExtr : double;
+  ValorOrdin : double;
+  TotaPagar  : double;
+begin
+  if (Edit1.Text = '') then
+  begin
+    ShowMessage('Ingrese nombre del empleado');
+    Edit1.SetFocus;
+    abort;
+  end;
+
+  if (Edit2.Text = '') then
+  begin
+    ShowMessage('Ingrese un número válido de horas trabajadas');
+    Edit2.SetFocus;
+    abort;
+  end;
+
+  if (Edit3.Text = '') then
+  begin
+    ShowMessage('Ingrese el valor de la hora ordinaria');
+    Edit3.SetFocus;
+    abort;
+  end;
+
+  HorasTrabj := StrToInt(Edit2.Text);
+  ValHorOrdi := StrToFloat(Edit3.Text);
+  ValHorExtr := StrToFloat(Edit4.Text);
+
+  if HorasTrabj <= 35 then
+  begin
+     TotaPagar :=  (HorasTrabj * ValHorOrdi);
+  end
+  else
+  begin
+     if (Edit3.Text = '') then
+     begin
+       ShowMessage('Ingrese el valor de la hora extra');
+       Edit2.SetFocus;
+       abort;
+  end;
+     HorasExtra := HorasTrabj - 35;
+     HorasOrdin := 35;
+     ValorOrdin := (35 * ValHorOrdi);
+     ValHorExtr := (HorasExtra * ValHorExtr);
+     TotaPagar  := ValorOrdin + ValHorExtr;
+  end;
+
+   MessageBox(Handle, pchar('Al empleado ' + Edit1.Text + ' se le debe pagar la suma de $ ' + FloatToStr(TotaPagar) + ' pesos.'), pchar('Salario empleado'), MB_OK);
+end;
+
+procedure TForm1.Edit2KeyPress(Sender: TObject; var Key: Char);
+begin
+   if not (key in [#8, '0'..'9']) then
+   begin
+     key := #0;
+   end;
+end;
+
+procedure TForm1.Edit3KeyPress(Sender: TObject; var Key: Char);
+begin
+   if not (key in [#8, '0'..'9']) then
+   begin
+     key := #0;
+   end;
+end;
+
+procedure TForm1.Edit4KeyPress(Sender: TObject; var Key: Char);
+begin
+   if not (key in [#8, '0'..'9', #44]) then
+   begin
+     key := #0;
+   end;
+end;
+
+end.
